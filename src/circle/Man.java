@@ -1,13 +1,13 @@
 package circle;
-
+import java.util.Scanner;
 public class Man {
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		Scanner input =new Scanner (System.in);
 	    System.out.println("enter your Fullname_with_initial:");
 	    String FullName_with_initial=input.nextLine();
 	    System.out.println("enter your RollNo:");
 	    String RollNo=input.nextLine();
-	   
 	    System.out.println("enter your Grade:");
 	    String Grade=input.nextLine();
 	 

@@ -24,7 +24,7 @@ public class DatabaseOperation {
 		public static int insert() throws SQLException
 		{
 			//getting input from user
-			String name , location , designation;
+			String name , location , designaton;
 			int salary,emp_id;
 			System.out.println("----- Inserting ------");
 			System.out.println("emp_id : ");
@@ -32,7 +32,7 @@ public class DatabaseOperation {
 			in.nextLine();
 			System.out.println(" Name : ");
 			name = in.nextLine();
-			System.out.println("Designation : ");
+			System.out.println("Designaton : ");
 			designation = in.nextLine();
 			System.out.println("location ");
 			location = in.nextLine();
@@ -41,11 +41,11 @@ public class DatabaseOperation {
 			
 			
 			//executing query
-			String query = "INSERT INTO employee(emp_id,name,designation,location,salary) VALUES (?,?,?,?,?)";
+			String query = "INSERT INTO employee(emp_id,name,designaton,location,salary) VALUES (?,?,?,?,?)";
 			PreparedStatement pt = con.prepareStatement(query);
 			pt.setInt(1, emp_id);
 			pt.setString(2, name);
-			pt.setString(3,designation);
+			pt.setString(3,designaton);
 			pt.setString(4,location);
 			pt.setInt(5, salary);
 			int rowsAffected = pt.executeUpdate();
@@ -76,7 +76,7 @@ public class DatabaseOperation {
 			//printing table
 			String line = " ___________ ";
 			line=line.replace("_", "-");
-			System.out.printf("%s\n| %-4s | %-30s | %-25s | %-10s | %-10s |\n%s\n",line,"Emp_Id"," Name","Designation","Location","Salary",line);
+			System.out.printf("%s\n| %-4s | %-30s | %-25s | %-10s | %-10s |\n%s\n",line,"Emp_Id"," Name","Designaton","Location","Salary",line);
 		    while( rs.next() )
 		    	System.out.printf("| %-4d | %-30s | %-25s | %-10s | %-10d |\n%s\n",rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),line);
 		    
@@ -90,14 +90,14 @@ public class DatabaseOperation {
 			System.out.println("----- Update ------");
 			int emp_id , rowsAffected,option;
 			String query;
-			String[] columns = {"emp_id","name","designation","location","salary"};
+			String[] columns = {"emp_id","name","designaton","location","salary"};
 			
 			//getting employee id
 			System.out.print("Enter Emp_id : ");
 			emp_id = in.nextInt();
 			
 			//getting which column to update
-			System.out.println("Choose which column to update : \n1.Emp_id\n2.name\n3.designation\n4.Location\n5.Salary");
+			System.out.println("Choose which column to update : \n1.Emp_id\n2.name\n3.designaton\n4.Location\n5.Salary");
 			option = in.nextInt();
 			if(option > 5 || option < 1) {
 			    System.out.println("Invalid Column!");
